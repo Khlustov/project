@@ -1,0 +1,33 @@
+.navbar {
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.navbar-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-button {
+    margin: auto 0.1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.navbar-user {
+    font-size: 1rem;
+    margin: auto 0.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
