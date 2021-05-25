@@ -1,10 +1,10 @@
-const { Router } = require('express')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const config = require('config')
-const {check, validationResult} = require('express-validator')
-const User = require('../models/User')
-const router = Router()
+const { Router } = require('express');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const config = require('config');
+const {check, validationResult} = require('express-validator');
+const User = require('../models/User');
+const router = Router();
 
 // /api/auth/registration
 router.post(
@@ -25,7 +25,7 @@ router.post(
 
         const regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
         if(regEmail.test(email) == false) {
-            return res.status(400).json({ message: 'Некорректный email' })
+            return res.status(400).json({ message: 'Некорректный email' });
         }
 
         const regPassword = /[0-9a-zA-Z]{6,}/;
@@ -33,7 +33,7 @@ router.post(
             return res.status(400).json({ message: 'Пароль должен содержать минимум 6 символов' })
         }
 
-        const candidate = await User.findOne({ email })
+        const candidate = await User.findOne({ email });
 
         if(candidate) {
             return res.status(400).json({ message: 'Такой пользователь уже существует' })

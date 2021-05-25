@@ -11,6 +11,7 @@ import { changeNameActionCreator, login } from '../actions/SignInActions';
 
 import { Navbar } from '../components'
 import { ROUTES } from '../constants'
+import AddPostPage from '../pages/AddPost';
 import SignInPage from '../pages/SignIn'
 
 export const Navigator = () => {
@@ -36,6 +37,7 @@ export const Navigator = () => {
         <BrowserRouter>
           <Navbar />
           <Switch>
+            <Route path={ROUTES.ADD} component={AddPostPage}/>
             <Route path={ROUTES.SIGNIN} component={SignInPage}/>
           </Switch>
         </BrowserRouter>

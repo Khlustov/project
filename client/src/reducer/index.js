@@ -9,6 +9,11 @@ const initialState = {
     userData: null,
     token: null,
     userId: null,
+    postTitle: '',
+    postPrice: '',
+    postDescription: '',
+    postContacts: '',
+    somePostData: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -40,7 +45,11 @@ const reducer = (state = initialState, action) => {
         name: '',
         email: '',
         password: '',
-        error: null
+        error: null,
+        loading: false,
+        userData: null,
+        token: null,
+        userId: null,
       }
     }
 
@@ -119,6 +128,55 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         name: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.CHANGE_POST_TITLE) {
+      return {
+        ...state,
+        postTitle: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.CHANGE_POST_PRICE) {
+      return {
+        ...state,
+        postPrice: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.CHANGE_POST_DESCRIPTION) {
+      return {
+        ...state,
+        postDescription: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.CHANGE_POST_CONTACTS) {
+      return {
+        ...state,
+        postContacts: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.ADD_POST_START) {
+      return {
+        ...state,
+        loading: true
+      }
+    }
+
+    if(action.type === actionTypes.ADD_POST_SUCCESS) {
+      return {
+        ...state,
+        somePostData: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.ADD_POST_START) {
+      return {
+        ...state,
+        error: action.payload
       }
     }
 

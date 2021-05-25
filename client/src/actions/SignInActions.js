@@ -75,7 +75,6 @@ export const login = (name, email, password) => {
         type: actionTypes.LOGIN_SUCCESS,
         payload: response
       });      
-      console.log(response);
 
       localStorage.setItem('userData', JSON.stringify({
         token: response.data.token, 

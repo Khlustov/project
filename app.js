@@ -1,14 +1,15 @@
-const express = require('express')
-const config = require('config')
-const mongoose = require('mongoose')
-const route = require('./routes/auth.route')
+const express = require('express');
+const config = require('config');
+const mongoose = require('mongoose');
+const route = require('./routes/auth.route');
+const post = require('./routes/post.route')
 
 const app = express();
 app.use(express.json({ extended: true }));
 const PORT = config.get('port') || 5000;
 
 app.use('/api/auth', route);
-
+app.use('/api/posts', post);
 
 async function start() {
     

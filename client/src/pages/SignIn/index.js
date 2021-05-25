@@ -1,4 +1,4 @@
-import React, { useCallback,useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { 
   changeEmailActionCreator, 
@@ -99,7 +99,6 @@ const SignInPage = () => {
           </div>
         </div> 
         {userData !== null && <Redirect to={ROUTES.MAIN} />} 
-        {/* {token !== null && <Redirect to={ROUTES.MAIN} />}        */}
       </div>   
       
       
