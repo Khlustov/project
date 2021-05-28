@@ -50,8 +50,9 @@ export const register = (name, email, password) => {
       
       dispatch({
         type: actionTypes.REGISTER_FAILURE,
-        payload: error.response.data.message
+        payload: error.response
       })
+      console.log(error.response);
     }
 
   }

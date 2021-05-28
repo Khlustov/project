@@ -1,6 +1,4 @@
 const { Router } = require('express');
-const Post = require('../models/Post');
-// const config = require('config');
 const Posts = require('../models/Post');
 const User = require('../models/User')
 const router = Router();
@@ -11,9 +9,9 @@ router.post(
     async(req, res) => {
     try {
         
-        const {email, title, price, description, contacts} = req.body;
+        const {email, picture, title, price, description, contacts} = req.body;
 
-        const post = new Posts({ title, price, description, contacts });
+        const post = new Posts({ picture, title, price, description, contacts });
         
         await User.findOneAndUpdate({email}, {$push: {posts: post}});
 

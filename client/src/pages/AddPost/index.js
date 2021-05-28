@@ -5,7 +5,8 @@ import {
     changePostPrice,
     changePostDescription,
     changePostContacts,
-    addPost
+    addPost,
+    changePostPicture
 } from '../../actions/addPostActions';
 
 import './style.css'
@@ -15,10 +16,15 @@ const AddPostPage = () => {
     const dispatch = useDispatch();
     
     const email = useSelector(state => state.email);
+    const postPicture = useSelector(state => state.postPicture);
     const postTitle = useSelector(state => state.postTitle);
     const postPrice = useSelector(state => state.postPrice);
     const postDescription = useSelector(state => state.postDescription);
     const postContacts = useSelector(state => state.postContacts);
+
+    const onChangePostPicture = useCallback((event) => {
+        dispatch(changePostPicture(event.target.value));
+    }, [dispatch]);
 
     const onChangePostTitle = useCallback((event) => {
         dispatch(changePostTitle(event.target.value));
@@ -37,13 +43,18 @@ const AddPostPage = () => {
     }, [dispatch]);
 
     const add = useCallback(() => {
-        dispatch(addPost(email, postTitle, postPrice, postDescription, postContacts));
-      }, [dispatch, email, postTitle, postPrice, postDescription, postContacts]);
+        dispatch(addPost(email, postPicture, postTitle, postPrice, postDescription, postContacts));
+      }, [dispatch, email, postPicture, postTitle, postPrice, postDescription, postContacts]);
 
     return (
         <div className="add-post-page">
             <div className="add-page-modal">
                 <form className="add-form">
+                    <input
+                    type="file"
+                    onChange={onChangePostPicture}
+                    >
+                    </input>
                     <input
                     className="add-form-input"
                     type="text"

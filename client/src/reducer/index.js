@@ -9,11 +9,13 @@ const initialState = {
     userData: null,
     token: null,
     userId: null,
+    postPicture: null,
     postTitle: '',
     postPrice: '',
     postDescription: '',
     postContacts: '',
-    somePostData: null
+    somePostData: null,
+    posts: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -72,9 +74,9 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
-        name: '',
-        email: '',
-        password: '',
+        name: action.payload.config.data.name,
+        email: action.payload.config.data.email,
+        password: action.payload.config.data.password,
         loading: false,
       }
     }
@@ -131,6 +133,13 @@ const reducer = (state = initialState, action) => {
       }
     }
 
+    if(action.type === actionTypes.CHANGE_POST_PICTURE) {
+      return {
+        ...state,
+        postPicture: action.payload
+      }
+    }
+
     if(action.type === actionTypes.CHANGE_POST_TITLE) {
       return {
         ...state,
@@ -174,6 +183,28 @@ const reducer = (state = initialState, action) => {
     }
 
     if(action.type === actionTypes.ADD_POST_START) {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.GET_POST_START) {
+      return {
+        ...state,
+        loading: true
+      }
+    }
+
+    if(action.type === actionTypes.GET_POST_SUCCESS) {
+      return {
+        ...state,
+        loading: false,
+        posts: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.GET_POST_START) {
       return {
         ...state,
         error: action.payload

@@ -2,6 +2,13 @@ import { actionTypes } from '../constants';
 import {toast} from 'react-toast';
 import axios from 'axios';
 
+export const changePostPicture = (payload) => {
+  return {
+      type: actionTypes.CHANGE_POST_PICTURE,
+      payload
+  }
+}
+
 export const changePostTitle = (payload) => {
     return {
         type: actionTypes.CHANGE_POST_TITLE,
@@ -30,7 +37,7 @@ export const changePostContacts = (payload) => {
     }
 }
 
-export const addPost = (email, title, price, description, contacts) => {
+export const addPost = (email, picture, title, price, description, contacts) => {
     return async (dispatch) => {
   
       dispatch({
@@ -40,8 +47,9 @@ export const addPost = (email, title, price, description, contacts) => {
       try {
               
         const response = await axios.post('/api/posts/addpost', {
-          email, title, price, description, contacts
+          email, picture, title, price, description, contacts
         });
+        
          
         dispatch({
           type: actionTypes.ADD_POST_SUCCESS,

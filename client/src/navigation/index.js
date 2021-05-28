@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { 
   changeTokenActionCreator, 
@@ -9,10 +9,11 @@ import {
 } from '../actions/appActions';
 import { changeNameActionCreator, login } from '../actions/SignInActions';
 
-import { Navbar } from '../components'
-import { ROUTES } from '../constants'
+import { Navbar } from '../components';
+import { ROUTES } from '../constants';
 import AddPostPage from '../pages/AddPost';
-import SignInPage from '../pages/SignIn'
+import SignInPage from '../pages/SignIn';
+import UserPosts from '../pages/UserPosts';
 
 export const Navigator = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ export const Navigator = () => {
         <BrowserRouter>
           <Navbar />
           <Switch>
+            <Route path={ROUTES.POSTS} component={UserPosts}/>
             <Route path={ROUTES.ADD} component={AddPostPage}/>
             <Route path={ROUTES.SIGNIN} component={SignInPage}/>
           </Switch>

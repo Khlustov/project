@@ -1,7 +1,8 @@
 export const ROUTES = {
     MAIN: '/',
     SIGNIN: '/registration',
-    ADD: '/add'
+    ADD: '/add',
+    POSTS: '/posts'
 }
 
 export const actionTypes = {
@@ -24,6 +25,7 @@ export const actionTypes = {
     GET_PASSWORD: 'GET_PASSWORD',
     GET_NAME: 'GET_NAME',
 
+    CHANGE_POST_PICTURE: 'CHANGE_POST_PICTURE',
     CHANGE_POST_TITLE: 'CHANGE_POST_TITLE',
     CHANGE_POST_PRICE: 'CHANGE_POST_PRICE',
     CHANGE_POST_DESCRIPTION: 'CHANGE_POST_DESCRIPTION',
@@ -32,6 +34,10 @@ export const actionTypes = {
     ADD_POST_START: 'ADD_POST_START',
     ADD_POST_SUCCESS: 'ADD_POST_SUCCESS',
     ADD_POST_FAILURE: 'ADD_POST_FAILURE',
+
+    GET_POST_START: 'GET_POST_START',
+    GET_POST_SUCCESS: 'GET_POST_SUCCESS',
+    GET_POST_FAILURE: 'GET_POST_FAILURE',
 
     CLEAR_STATE: 'CLEAR_STATE'    
 }
