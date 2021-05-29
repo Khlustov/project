@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const getPosts = useCallback(() => {
     dispatch(getUserPosts(email))
-    console.log("nav", email);
+    // console.log("nav", email);
   }, [dispatch, email])
   
 

@@ -17,7 +17,7 @@ export const getUserPosts = (email) => {
           type: actionTypes.GET_POST_SUCCESS,
           payload: response.data.user.posts
         })
-        console.log(email);
+        // console.log(email);
           
       }
   

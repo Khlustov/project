@@ -1,22 +1,29 @@
-import React, { useCallback, useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserPosts } from '../../actions/getUserPosts';
+import { Card } from '../../components/Card';
 
-import './style.css'
+import './style.css';
+
 const UserPostsPage = () => {
-    const dispatch = useDispatch();
-
-    const posts = useSelector(state => state.userPosts);
-    // const email = useSelector(state => state.email);
-
-    
+    const posts = useSelector(state => state.posts);   
 
     return (
-        <div>
-           {posts}
+        <div className="user-posts-page">
+           {posts && posts.map((item) => {
+               return (
+                   <div className="user-post-page-card">
+                        <Card
+                         key={item._id}
+                         title={item.title}
+                         price={item.price}
+                         description={item.description}
+                         contacts={item.contacts}
+                        />
+                   </div>
+               )
+           })}
         </div>
     )
-
 }
 
-export default UserPostsPage
+export default UserPostsPage;

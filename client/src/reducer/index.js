@@ -15,7 +15,8 @@ const initialState = {
     postDescription: '',
     postContacts: '',
     somePostData: null,
-    posts: null
+    posts: null,
+    addingPostStatus: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -178,7 +179,21 @@ const reducer = (state = initialState, action) => {
     if(action.type === actionTypes.ADD_POST_SUCCESS) {
       return {
         ...state,
-        somePostData: action.payload
+        somePostData: action.payload,
+      }
+    }
+
+    if(action.type === actionTypes.CHANGE_ADDING_POST_STATUS) {
+      return {
+        ...state,
+        addingPostStatus: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.RETURN_ADDING_POST_STATUS) {
+      return {
+        ...state,
+        addingPostStatus: action.payload
       }
     }
 

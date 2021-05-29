@@ -55,6 +55,16 @@ export const addPost = (email, picture, title, price, description, contacts) => 
           type: actionTypes.ADD_POST_SUCCESS,
           payload: response
         })
+
+        dispatch({
+          type: actionTypes.CHANGE_ADDING_POST_STATUS,
+          payload: true
+        })
+
+        dispatch({
+          type: actionTypes.RETURN_ADDING_POST_STATUS,
+          payload: false
+        })
   
         toast.success(response.data.message)
       }

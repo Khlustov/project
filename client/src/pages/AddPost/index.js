@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router';
 import {
     changePostTitle,
     changePostPrice,
@@ -8,6 +9,7 @@ import {
     addPost,
     changePostPicture
 } from '../../actions/addPostActions';
+import { ROUTES } from '../../constants';
 
 import './style.css'
 
@@ -21,6 +23,7 @@ const AddPostPage = () => {
     const postPrice = useSelector(state => state.postPrice);
     const postDescription = useSelector(state => state.postDescription);
     const postContacts = useSelector(state => state.postContacts);
+    const status = useSelector(state => state.addingPostStatus)
 
     const onChangePostPicture = useCallback((event) => {
         dispatch(changePostPicture(event.target.value));
@@ -98,6 +101,7 @@ const AddPostPage = () => {
                     </button>
                 </div>
             </div>
+            {status && <Redirect to={ROUTES.MAIN}/>}
         </div>
     )
 
