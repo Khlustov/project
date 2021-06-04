@@ -52,9 +52,7 @@ export const register = (name, email, password) => {
         type: actionTypes.REGISTER_FAILURE,
         payload: error.response
       })
-      console.log(error.response);
     }
-
   }
 }
 
@@ -92,10 +90,10 @@ export const login = (name, email, password) => {
 
       // toast.error(error.response.data.message)
       
-      // dispatch({
-      //   type: actionTypes.LOGIN_FAILURE,
-      //   payload: error.response.data.message
-      // })
+      dispatch({
+        type: actionTypes.LOGIN_FAILURE,
+        payload: error.response.data.message
+      })
     }
 
   }

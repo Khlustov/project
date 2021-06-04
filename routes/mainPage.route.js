@@ -4,15 +4,13 @@ const router = Router();
 
 // /api/posts/userposts
 router.get(
-    '/userposts',
+    '/main',
     async(req, res) => {
-    try {
-        
-        const param = req.query.userEmail;        
-
-        const user = await User.findOne({email: param});
-        
-        res.status(200).json({user});        
+    try {      
+            
+        const allPosts = await User.find({}, {posts: true});
+        allPosts.forEach((obj) => {return res.status(200).json({ data: obj })});               
+                
 
     } catch (error) {
         res.status(500).json({ message: 'Что-то пошло не так'})

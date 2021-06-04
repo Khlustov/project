@@ -3,7 +3,8 @@ const config = require('config');
 const mongoose = require('mongoose');
 const route = require('./routes/auth.route');
 const post = require('./routes/post.route');
-const userPosts = require('./routes/userPosts.route')
+const userPosts = require('./routes/userPosts.route');
+const allPosts = require('./routes/mainPage.route')
 
 const app = express();
 app.use(express.json({ extended: true }));
@@ -12,6 +13,7 @@ const PORT = config.get('port') || 5000;
 app.use('/api/auth', route);
 app.use('/api/posts', post);
 app.use('/api/posts', userPosts);
+app.use('/api', allPosts);
 
 async function start() {
     

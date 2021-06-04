@@ -17,6 +17,8 @@ const initialState = {
     somePostData: null,
     posts: null,
     addingPostStatus: false,
+    allPosts: null,
+    searchValue: ''
 }
 
 const reducer = (state = initialState, action) => {
@@ -219,10 +221,39 @@ const reducer = (state = initialState, action) => {
       }
     }
 
-    if(action.type === actionTypes.GET_POST_START) {
+    if(action.type === actionTypes.GET_POST_FAILURE) {
       return {
         ...state,
         error: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.GET_ALL_POSTS_START) {
+      return {
+        ...state,
+        loading: true
+      }
+    }
+
+    if(action.type === actionTypes.GET_ALL_POSTS_SUCCESS) {
+      return {
+        ...state,
+        loading: false,
+        allPosts: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.GET_ALL_POSTS_FAILURE) {
+      return {
+        ...state,
+        error: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.SEARCH_POST) {
+      return {
+        ...state,
+        searchValue: action.payload
       }
     }
 

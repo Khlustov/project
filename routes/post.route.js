@@ -9,10 +9,14 @@ router.post(
     async(req, res) => {
     try {
         
-        const {email, picture, title, price, description, contacts} = req.body;
+        const {email, title, price, description, contacts} = req.body;
 
-        const post = new Posts({ picture, title, price, description, contacts });
-        
+        if(!title || !price || !description || !contacts) {
+            return res.status(500).json({ message: 'Заполните все поля формы'})
+        }
+
+        const post = new Posts({ title, price, description, contacts });
+               
         await User.findOneAndUpdate({email}, {$push: {posts: post}});
 
         res.status(201).json({ message: 'Объявление опубликовано' })

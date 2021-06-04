@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
     changePostTitle,
     changePostPrice,
@@ -47,17 +48,14 @@ const AddPostPage = () => {
 
     const add = useCallback(() => {
         dispatch(addPost(email, postPicture, postTitle, postPrice, postDescription, postContacts));
-      }, [dispatch, email, postPicture, postTitle, postPrice, postDescription, postContacts]);
+    }, [dispatch, email, postPicture, postTitle, postPrice, postDescription, postContacts]);
 
+    
+    
     return (
         <div className="add-post-page">
             <div className="add-page-modal">
                 <form className="add-form">
-                    <input
-                    type="file"
-                    onChange={onChangePostPicture}
-                    >
-                    </input>
                     <input
                     className="add-form-input"
                     type="text"
@@ -92,7 +90,13 @@ const AddPostPage = () => {
                     </input>
                 </form>
                 <div className="add-form-buttons">
-                    <button className="add-form-button">Отмена</button>
+                    <Link className="link" to={ROUTES.MAIN}>
+                      <button 
+                      className="add-form-button"
+                      >
+                        Отмена
+                    </button>
+                    </Link>
                     <button 
                     className="add-form-button"
                     onClick={add}

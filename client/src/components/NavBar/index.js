@@ -21,7 +21,6 @@ const Navbar = () => {
 
   const getPosts = useCallback(() => {
     dispatch(getUserPosts(email))
-    // console.log("nav", email);
   }, [dispatch, email])
   
 
@@ -46,7 +45,9 @@ const Navbar = () => {
             </>
           ) : (
             <Link className="link" to={ROUTES.SIGNIN}>
-            <button className="navbar-button navbar-button__signin">войти</button>
+            <button 
+            className="navbar-button navbar-button__signin"            
+            >войти</button>
             </Link>
           )}                    
         </div>

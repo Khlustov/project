@@ -2,22 +2,22 @@ import { actionTypes } from '../constants';
 import {toast} from 'react-toast';
 import axios from 'axios';
 
-export const getUserPosts = (email) => {
+export const getAllPosts = () => {
     return async (dispatch) => {
   
       dispatch({
-        type: actionTypes.GET_POST_START
+        type: actionTypes.GET_ALL_POSTS_START
       });
   
       try {
               
-        const response = await axios.get('/api/posts/userposts', {params: {userEmail: email}});
+        const response = await axios.get('/api/main');
                  
         dispatch({
-          type: actionTypes.GET_POST_SUCCESS,
-          payload: response.data.user.posts
+          type: actionTypes.GET_ALL_POSTS_SUCCESS,
+          payload: response.data.data.posts
         })
-                  
+                        
       }
   
       catch (error) {
