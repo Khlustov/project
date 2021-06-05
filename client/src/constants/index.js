@@ -48,5 +48,7 @@ export const actionTypes = {
 
     SEARCH_POST: 'SEARCH_POST',
 
+    GET_POST_ID: 'GET_POST_ID',
+
     CLEAR_STATE: 'CLEAR_STATE'    
 }

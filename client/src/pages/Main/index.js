@@ -1,5 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { getAllPosts } from '../../actions/getAllPosts';
 import { searchPostActionCreator } from '../../actions/searchPostAction'
 import { Card } from '../../components/Card';
 
@@ -17,7 +18,11 @@ const AllPostsPage = () => {
 
     const filteredPosts = allPosts && allPosts.filter(posts => {
         return posts.title.toLowerCase().includes(searchPost.toLowerCase())
-    })
+    });
+
+    useEffect(() => {
+        dispatch(getAllPosts())
+    }, [dispatch]);
                  
     return (
         <div className="main-page">

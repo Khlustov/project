@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../constants';
 import { clearState } from '../../actions/clearState';
-import { getUserPosts } from '../../actions/getUserPosts';
 
 import './style.css';
 
@@ -11,18 +10,12 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const userData = useSelector(state => state.userData);
-  const name = useSelector(state => state.name);
-  const email = useSelector(state => state.email);
+  const name = useSelector(state => state.name);  
 
   const exitFromProfile = useCallback(() => {
     dispatch(clearState());
     localStorage.removeItem('userData')
-  }, [dispatch]);
-
-  const getPosts = useCallback(() => {
-    dispatch(getUserPosts(email))
-  }, [dispatch, email])
-  
+  }, [dispatch]);  
 
   return (
     <div className="navbar">
@@ -36,10 +29,10 @@ const Navbar = () => {
             <>
             <div className="navbar-user">{name}</div>
             <Link className="link" to={ROUTES.POSTS}>
-              <button onClick={getPosts}>Мои объявления</button>
+              Мои объявления              
             </Link>            
             <Link className="link" to={ROUTES.ADD}>
-              <button>Добавить объявление</button>
+              Добавить объявление
             </Link>
             <button onClick={exitFromProfile}>Выйти</button>
             </>

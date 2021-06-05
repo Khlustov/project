@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const route = require('./routes/auth.route');
 const post = require('./routes/post.route');
 const userPosts = require('./routes/userPosts.route');
-const allPosts = require('./routes/mainPage.route')
+const allPosts = require('./routes/mainPage.route');
+const deletePost = require('./routes/deleteUserPost.route')
 
 const app = express();
 app.use(express.json({ extended: true }));
@@ -14,6 +15,8 @@ app.use('/api/auth', route);
 app.use('/api/posts', post);
 app.use('/api/posts', userPosts);
 app.use('/api', allPosts);
+app.use('/api/posts', deletePost);
+
 
 async function start() {
     

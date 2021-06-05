@@ -7,8 +7,7 @@ import {
     changePostPrice,
     changePostDescription,
     changePostContacts,
-    addPost,
-    changePostPicture
+    addPost,    
 } from '../../actions/addPostActions';
 import { ROUTES } from '../../constants';
 
@@ -25,10 +24,6 @@ const AddPostPage = () => {
     const postDescription = useSelector(state => state.postDescription);
     const postContacts = useSelector(state => state.postContacts);
     const status = useSelector(state => state.addingPostStatus)
-
-    const onChangePostPicture = useCallback((event) => {
-        dispatch(changePostPicture(event.target.value));
-    }, [dispatch]);
 
     const onChangePostTitle = useCallback((event) => {
         dispatch(changePostTitle(event.target.value));
@@ -99,7 +94,7 @@ const AddPostPage = () => {
                     </Link>
                     <button 
                     className="add-form-button"
-                    onClick={add}
+                    onClick={add}                    
                     >
                     ОК
                     </button>

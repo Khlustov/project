@@ -9,7 +9,7 @@ const initialState = {
     userData: null,
     token: null,
     userId: null,
-    postPicture: null,
+    postId: '',    
     postTitle: '',
     postPrice: '',
     postDescription: '',
@@ -254,6 +254,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         searchValue: action.payload
+      }
+    }
+
+    if(action.type === actionTypes.GET_POST_ID) {
+      return {
+        ...state,
+        postId: action.payload
       }
     }
 

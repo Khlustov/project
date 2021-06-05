@@ -7,7 +7,6 @@ import {
   getEmailFromLocalStorage, 
   getPasswordFromLocalStorage 
 } from '../actions/appActions';
-import { getAllPosts } from '../actions/getAllPosts';
 import { changeNameActionCreator, login } from '../actions/SignInActions';
 
 import { Navbar } from '../components';
@@ -33,10 +32,8 @@ export const Navigator = () => {
       dispatch(getEmailFromLocalStorage(data.email));
       dispatch(getPasswordFromLocalStorage(data.password));
       dispatch(login(name, email, password))
-    };
-
-   dispatch(getAllPosts());
-  }, [dispatch, name, email, password, getAllPosts])
+    };   
+  }, [dispatch, name, email, password])
 
     return (
         <BrowserRouter>
