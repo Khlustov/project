@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPostIdActionCreator } from '../../actions/getPostId';
+import { deleteUserPost } from '../../actions/deleteUserPost';
 import { getUserPosts } from '../../actions/getUserPosts';
 import { Card } from '../../components/Card';
 
@@ -10,10 +10,12 @@ const UserPostsPage = () => {
     const dispatch = useDispatch();
     const posts = useSelector(state => state.posts);
     const email = useSelector(state => state.email);
+           
+    const deletePost = useCallback((event) => {
         
-    const savePostId = useCallback((event) => {
-        dispatch(getPostIdActionCreator(event.target.parentNode.firstElementChild.firstElementChild.innerText));
-    }, [dispatch]);
+        dispatch(deleteUserPost(email, event.target.parentNode.firstElementChild.firstElementChild.innerText));
+        
+    }, [dispatch, email]);
 
    useEffect(() => {
        dispatch(getUserPosts(email));
@@ -29,9 +31,9 @@ const UserPostsPage = () => {
                          title={item.title}
                          price={item.price}
                          description={item.description}
-                         contacts={item.contacts}
+                         contacts={item.contacts}                         
                         />
-                        <button onClick={savePostId}>Удалить</button>
+                        <button className="delete-post-button" onClick={deletePost}>Удалить</button>
                    </div>
                )
            })}

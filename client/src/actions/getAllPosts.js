@@ -15,13 +15,16 @@ export const getAllPosts = () => {
                  
         dispatch({
           type: actionTypes.GET_ALL_POSTS_SUCCESS,
-          payload: response.data.data.posts
+          payload: response.data
         })
                         
       }
   
       catch (error) {
-        toast.error(error.response.data.message)
+        toast.error(`${error.response.data.message}`, {
+          backgroundColor: "#323131",
+          color: "#ffffff"
+        })
         
         dispatch({
           type: actionTypes.GET_POST_FAILURE,

@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-        <Link className="link" to={ROUTES.MAIN}>
+        <Link className="link-main" to={ROUTES.MAIN}>
           <div className="navbar-logo">
             <h1>LOGO</h1>
           </div>
@@ -34,13 +34,13 @@ const Navbar = () => {
             <Link className="link" to={ROUTES.ADD}>
               Добавить объявление
             </Link>
-            <button onClick={exitFromProfile}>Выйти</button>
+            <Link className="link" onClick={exitFromProfile}>
+              Выйти
+            </Link>
             </>
           ) : (
-            <Link className="link" to={ROUTES.SIGNIN}>
-            <button 
-            className="navbar-button navbar-button__signin"            
-            >войти</button>
+            <Link className="link" to={ROUTES.SIGNIN}>                        
+            Войти
             </Link>
           )}                    
         </div>

@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import './index.css';
 import { Navigator } from './navigation'
-import reducer from './reducer';
+import reducer from './reducers';
 import { ToastContainer } from 'react-toast';
 
 const store = createStore(
@@ -22,7 +22,7 @@ ReactDOM.render(
       <Navigator />
       <ToastContainer 
       delay={2500}
-      position='bottom-right'
+      position='bottom-right'      
       />
     </React.StrictMode>
   </Provider>,

@@ -13,6 +13,12 @@ body {
 
 #root {
     max-width: 1920px;
-    width: 90%;
+    width: 100%;
     height: 100%;
+    background-color: #bbb;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
 }

@@ -26,24 +26,27 @@ const AllPostsPage = () => {
                  
     return (
         <div className="main-page">
-            <div className='search-input'>
-            <input            
+            <div className="search-container">
+            <input 
+            type="text"
+            placeholder="Найти объявление..." 
+            className='search-input'          
             onChange={onChangeSearchInput}
             >
             </input>
             </div>            
             <div className='main-page-content'>
                 {allPosts && filteredPosts.map((item) => {
-                   return (
-                       <div key={item._id} className='main-page-card'>
-                           <Card 
-                           title={item.title}
-                           price={item.price}
-                           description={item.description}
-                           contacts={item.contacts}
-                           />
-                       </div>
-                   )
+                     return (                            
+                        <div key={item._id} className='main-page-card'>
+                            <Card 
+                            title={item.title}
+                            price={item.price}
+                            description={item.description}
+                            contacts={item.contacts}
+                            />
+                        </div>
+                    )                   
                 })}
             </div>
         </div>

@@ -1,5 +1,5 @@
 .user-posts-page {
-    width: 100%;
+    width: 90%;
     height: 94vh;
     display: flex;
     justify-content: flex-start;
@@ -7,15 +7,29 @@
     flex-wrap: wrap;
 }
 
-.user-post-page-card {
-    width: 90%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;    
-    width: 150px;
-    height: 150px;
-    border: 1px solid #000;
+.user-post-page-card {   
     margin: 0.5rem;
-    box-sizing: border-box;
+    position: relative;
 }
 
+.delete-post-button {
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    right: 2px;
+    bottom: -20px;
+    border-radius: 5px;
+    margin: 0.3rem;
+    border: 1px solid #002e47;
+    background-color: #0082c8;
+    font-size: 14px;
+    color: #F5DEB3;
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.delete-post-button:hover {
+    border: 1px solid #002e47;
+    background-color: #002e47;
+    color: #0082c8;
+    transition: all ease-in-out 0.3s;    
+}

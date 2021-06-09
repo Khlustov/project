@@ -21,12 +21,7 @@ export const getUserPosts = (email) => {
       }
   
       catch (error) {
-        toast.error(error.response.data.message)
         
-        dispatch({
-          type: actionTypes.GET_POST_FAILURE,
-          payload: error.response.data.message
-        })
       }
   
     }

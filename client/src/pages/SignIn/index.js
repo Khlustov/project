@@ -57,7 +57,7 @@ const SignInPage = () => {
               className="sign-in-closemodal"
               onClick={onCloseModal}
             >
-            X
+              X
             </button>
           </Link>  
           <form className="login-form">
@@ -83,7 +83,7 @@ const SignInPage = () => {
                 onChange={onChangePassword}
               />
           </form>
-          <div>
+          <div className="login-form-buttons">
               <button 
               className="login-form-button"
               onClick={registration}

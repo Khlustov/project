@@ -66,11 +66,17 @@ export const addPost = (email, picture, title, price, description, contacts) => 
           payload: false
         })
   
-        toast.success(response.data.message)
+        toast.success(`${response.data.message}`, {
+          backgroundColor: "#323131",
+          color: "#ffffff"
+        })
       }
   
       catch (error) {
-        toast.error(error.response.data.message)
+        toast.error(`${error.response.data.message}`, {
+          backgroundColor: "#323131",
+          color: "#ffffff"
+        })
         
         dispatch({
           type: actionTypes.ADD_POST_FAILURE,

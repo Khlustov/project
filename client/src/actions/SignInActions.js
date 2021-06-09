@@ -42,11 +42,17 @@ export const register = (name, email, password) => {
         payload: response.config.data
       })
 
-      toast.success(response.data.message)
+      toast.success(`${response.data.message}`, {
+        backgroundColor: "#323131",
+        color: "#ffffff"
+      })
     }
 
     catch (error) {
-      toast.error(error.response.data.message)
+      toast.error(`${error.response.data.message}`, {
+        backgroundColor: "#323131",
+        color: "#ffffff"
+      })
       
       dispatch({
         type: actionTypes.REGISTER_FAILURE,
@@ -83,12 +89,18 @@ export const login = (name, email, password) => {
         password: response.data.password
       }))
 
-      toast.success(`Добро пожаловать, ${name}`);
+      toast.success(`Добро пожаловать, ${response.data.name}`, {
+        backgroundColor: "#323131",
+        color: "#ffffff"
+      })
     }
 
     catch (error) {
 
-      // toast.error(error.response.data.message)
+      toast.error(`${error.response.data.message}`, {
+        backgroundColor: "#323131",
+        color: "#ffffff"
+      })
       
       dispatch({
         type: actionTypes.LOGIN_FAILURE,
