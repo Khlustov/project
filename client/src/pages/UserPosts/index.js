@@ -14,6 +14,7 @@ const UserPostsPage = () => {
     const deletePost = useCallback((event) => {
         
         dispatch(deleteUserPost(email, event.target.parentNode.firstElementChild.firstElementChild.innerText));
+        dispatch(getUserPosts(email));
         
     }, [dispatch, email]);
 
